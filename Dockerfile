@@ -1,5 +1,5 @@
 # Base image with OSRM
-FROM osrm/osrm-backend:v5.27.0
+FROM osrm/osrm-backend:latest
 
 # Set the working directory
 WORKDIR /data
