@@ -1,0 +1,11 @@
+comando 1
+docker run -t -v /c/amerisa/PreprocesadoOSRM/osrm-data:/data osrm/osrm-backend osrm-extract -p /opt/car.lua /data/mexico-latest.osm.pbf
+
+comando 2
+docker run -t -v /c/amerisa/PreprocesadoOSRM/osrm-data:/data osrm/osrm-backend osrm-partition /data/mexico-latest.osrm
+
+comando 3
+docker run -t -v /c/PreprocesadoOSRM/osrm-data:/data osrm/osrm-backend osrm-customize /data/mexico-latest.osrm
+
+
+docker run -t -i -p 5000:5000 -v /c/amerisa/PreprocesadoOSRM/osrm-data:/data osrm/osrm-backend osrm-routed --algorithm mld /data/mexico-latest.osrm
